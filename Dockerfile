@@ -29,8 +29,8 @@ RUN     apt-get -y autoclean && apt-get -y autoremove && apt-get clean && rm -rf
 # Add files, set permissions, ownership, create folders
 ADD	start.sh /start.sh
 RUN	mkdir -p /media/downloads/incomplete && mkdir -p /config && chown -R downloads: /media/downloads
-ADD	setting.json /config
-RUN	chown -R downloads: /config
+ADD	settings.json /etc/transmission-daemon/
+RUN	chown -R downloads: /config /etc/transmission-daemon/settings.json
 
 # User which will run the doker's processes
 USER	downloads
