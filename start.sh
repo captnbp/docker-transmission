@@ -6,7 +6,7 @@ CONFIG_DIR=/config
 SETTINGS=$CONFIG_DIR/settings.json
 TRANSMISSION=/usr/bin/transmission-daemon
 
-if [[ ! -z /config/settings.json ]]; then
+if [[ ! -e /config/settings.json ]]; then
 	cp /etc/transmission-daemon/settings.json /config/
 	if [ -z $PASSWORD ]; then
 		echo "No password provided in -e PASSWORD= during the docker run command. Using default password 'transmission'"
